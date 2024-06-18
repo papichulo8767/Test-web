@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarinaGaming777</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: black;
+            background-image: url('https://images.unsplash.com/photo-1516054713920-38d3ecb8fcf0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNjUyOXwwfDF8c2VhcmNofDR8fGNhc2lub3xlbnwwfHx8fDE2ODcwMjY2MTl8MA&ixlib=rb-4.0.3&q=80&w=1080');
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff9800;
+        }
+
+        .hero {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .cta-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background-color: #ff9800;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #e68900;
+        }
+
+        .games, .promotions {
+            padding: 50px 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .games h2, .promotions h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .game-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game-item {
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1 1 calc(33.333% - 40px);
+            box-sizing: border-box;
+            cursor: pointer;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .game-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .game-item[data-url="https://dl.juwa777.com"] {
+            background-color: #e91e63;
+        }
+
+        .game-item[data-url="http://m.lasvegassweeps.com"] {
+            background-color: #2196f3;
+        }
+
+        .game-item[data-url="http://play.firekirin.in/web_mobile/firekirin/"] {
+            background-color: #4caf50;
+        }
+
+        .game-item[data-url="http://Dl.highstakesweeps.com"] {
+            background-color: #ff5722;
+        }
+
+        .game-item[data-url="https://download.casinoignite.vip"] {
+            background-color: #9c27b0;
+        }
+
+        .game-item[data-url="http://download.gamevault999.com"] {
+            background-color: #03a9f4;
+        }
+
+        .game-item[data-url="http://www.vblink777.club"] {
+            background-color: #ffeb3b;
+            color: black;
+        }
+
+        .game-item[data-url="http://www.gameroom777.com"] {
+            background-color: #8bc34a;
+        }
+
+        .game-item[data-url="https://milkywayapp.xyz"] {
+            background-color: #ff9800;
+        }
+
+        .game-item[data-url="http://www.cashfrenzy777.com/"] {
+            background-color: #ff5722;
+        }
+
+        .promotions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .promotions li {
+            font-size: 24px;
+            margin: 10px 0;
+            color: white;
+        }
+
+        footer {
+            background-color: #333;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .social-media a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-media a:hover {
+            color: #ff9800;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            color: black;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Marina Gaming 777</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#games">Games</a></li>
+                <li><a href="#promotions">Promotions</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Welcome to Marina Gaming 777</h1>
+        <p>Your Ultimate Online Casino Experience</p>
+        <a href="#games" class="cta-button">Play Now</a>
+    </section>
+
+    <section id="featured-games" class="games">
+        <h2>Featured Games</h2>
+        <div class="game-list">
+            <div class="game-item" data-url="https://dl.juwa777.com">Juwa</div>
+            <div class="game-item" data-url="http://m.lasvegassweeps.com">Vegas Sweeps</div>
+            <div class="game-item" data-url="http://play.firekirin.in/web_mobile/firekirin/">Firekirin</div>
+            <div class="game-item" data-url="http://Dl.highstakesweeps.com">Highstakes</div>
+            <div class="game-item" data-url="https://download.casinoignite.vip">Casino Ignite</div>
+            <div class="game-item" data-url="http://download.gamevault999.com">Game Vault</div>
+            <div class="game-item" data-url="http://www.vblink777.club">VB Link</div>
+            <div class="game-item" data-url="http://www.gameroom777.com">Game Room</div>
+            <div class="game-item" data-url="https://milkywayapp.xyz">Milky Way</div>
+            <div class="game-item" data-url="http://www.cashfrenzy777.com/">Cash Frenzy</div>
+        </div>
+    </section>
+
+    <section id="promotions" class="promotions">
+        <h2>Exclusive Promotions</h2>
+        <ul>
+            <li>100% SIGNUP BONUS</li>
+            <li>Weekly Cashbacks (UPTO $50)</li>
+            <li>VIP Member Rewards</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MarinaGaming333. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://facebook.com/MarinaGaming333">Facebook</a>
+            <a href="https://instagram.com/MarinaGaming333">Instagram</a>
+        </div>
+    </footer>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Signup for Access</h2>
+            <form id="signupForm">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="phone">Phone Number:</label><br>
+                <input type="tel" id="phone" name="phone" required><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const gameItems = document.querySelectorAll('.game-item');
+            const modal = document.getElementById('signupModal');
+            const span = document.getElementsByClassName('close')[0];
+            let clickedUrl = '';
+
+            gameItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    clickedUrl = this.getAttribute('data-url');
+                    modal.style.display = 'block';
+                });
+            });
+
+            span.onclick = function() {
+                modal.style.display = 'none';
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+
+            const form = document.getElementById('signupForm');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+
+                // Send data to Google Sheets or any database
+                fetch('https://script.google.com/macros/s/AKfycbx9PxgCUQlhrJTOsd2KiqKmoQgV7smn58U--o0tVgypQZyWUDDzt6SJrh9NRCF8MK_KBA/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, phone, url: clickedUrl })
+                }).then(response => {
+                    console.log('Success:', response);
+                    window.location.href = clickedUrl;
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+
+                modal.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
